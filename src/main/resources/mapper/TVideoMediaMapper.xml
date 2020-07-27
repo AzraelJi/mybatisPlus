@@ -1,0 +1,280 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yang.template.mapper.TVideoMediaMapper">
+  <resultMap id="BaseResultMap" type="com.yang.template.model.domain.TVideoMedia">
+    <!--@mbg.generated-->
+    <!--@Table t_video_media-->
+    <id column="id" jdbcType="VARCHAR" property="id" />
+    <result column="categoryid" jdbcType="VARCHAR" property="categoryid" />
+    <result column="mediauuid" jdbcType="VARCHAR" property="mediauuid" />
+    <result column="mediatype" jdbcType="BOOLEAN" property="mediatype" />
+    <result column="mediaorginalname" jdbcType="VARCHAR" property="mediaorginalname" />
+    <result column="mediaorginalsize" jdbcType="DOUBLE" property="mediaorginalsize" />
+    <result column="media_played_size" jdbcType="DOUBLE" property="mediaPlayedSize" />
+    <result column="mediaorginaltype" jdbcType="VARCHAR" property="mediaorginaltype" />
+    <result column="mediaorginalpath" jdbcType="VARCHAR" property="mediaorginalpath" />
+    <result column="uploadtime" jdbcType="TIMESTAMP" property="uploadtime" />
+    <result column="uploaduser" jdbcType="VARCHAR" property="uploaduser" />
+    <result column="istranscode" jdbcType="BOOLEAN" property="istranscode" />
+    <result column="mediatspath" jdbcType="VARCHAR" property="mediatspath" />
+    <result column="mediam3u8path" jdbcType="VARCHAR" property="mediam3u8path" />
+    <result column="mediaplayurl" jdbcType="VARCHAR" property="mediaplayurl" />
+    <result column="meidiaduration" jdbcType="INTEGER" property="meidiaduration" />
+    <result column="meidiastatus" jdbcType="BOOLEAN" property="meidiastatus" />
+    <result column="mediaremark" jdbcType="VARCHAR" property="mediaremark" />
+    <result column="mediaphoto" jdbcType="VARCHAR" property="mediaphoto" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, categoryid, mediauuid, mediatype, mediaorginalname, mediaorginalsize, media_played_size, 
+    mediaorginaltype, mediaorginalpath, uploadtime, uploaduser, istranscode, mediatspath, 
+    mediam3u8path, mediaplayurl, meidiaduration, meidiastatus, mediaremark, mediaphoto, 
+    create_time
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from t_video_media
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    <!--@mbg.generated-->
+    delete from t_video_media
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.yang.template.model.domain.TVideoMedia">
+    <!--@mbg.generated-->
+    insert into t_video_media (id, categoryid, mediauuid, 
+      mediatype, mediaorginalname, mediaorginalsize, 
+      media_played_size, mediaorginaltype, mediaorginalpath, 
+      uploadtime, uploaduser, istranscode, 
+      mediatspath, mediam3u8path, mediaplayurl, 
+      meidiaduration, meidiastatus, mediaremark, 
+      mediaphoto, create_time)
+    values (#{id,jdbcType=VARCHAR}, #{categoryid,jdbcType=VARCHAR}, #{mediauuid,jdbcType=VARCHAR}, 
+      #{mediatype,jdbcType=BOOLEAN}, #{mediaorginalname,jdbcType=VARCHAR}, #{mediaorginalsize,jdbcType=DOUBLE}, 
+      #{mediaPlayedSize,jdbcType=DOUBLE}, #{mediaorginaltype,jdbcType=VARCHAR}, #{mediaorginalpath,jdbcType=VARCHAR}, 
+      #{uploadtime,jdbcType=TIMESTAMP}, #{uploaduser,jdbcType=VARCHAR}, #{istranscode,jdbcType=BOOLEAN}, 
+      #{mediatspath,jdbcType=VARCHAR}, #{mediam3u8path,jdbcType=VARCHAR}, #{mediaplayurl,jdbcType=VARCHAR}, 
+      #{meidiaduration,jdbcType=INTEGER}, #{meidiastatus,jdbcType=BOOLEAN}, #{mediaremark,jdbcType=VARCHAR}, 
+      #{mediaphoto,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.yang.template.model.domain.TVideoMedia">
+    <!--@mbg.generated-->
+    insert into t_video_media
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="categoryid != null">
+        categoryid,
+      </if>
+      <if test="mediauuid != null">
+        mediauuid,
+      </if>
+      <if test="mediatype != null">
+        mediatype,
+      </if>
+      <if test="mediaorginalname != null">
+        mediaorginalname,
+      </if>
+      <if test="mediaorginalsize != null">
+        mediaorginalsize,
+      </if>
+      <if test="mediaPlayedSize != null">
+        media_played_size,
+      </if>
+      <if test="mediaorginaltype != null">
+        mediaorginaltype,
+      </if>
+      <if test="mediaorginalpath != null">
+        mediaorginalpath,
+      </if>
+      <if test="uploadtime != null">
+        uploadtime,
+      </if>
+      <if test="uploaduser != null">
+        uploaduser,
+      </if>
+      <if test="istranscode != null">
+        istranscode,
+      </if>
+      <if test="mediatspath != null">
+        mediatspath,
+      </if>
+      <if test="mediam3u8path != null">
+        mediam3u8path,
+      </if>
+      <if test="mediaplayurl != null">
+        mediaplayurl,
+      </if>
+      <if test="meidiaduration != null">
+        meidiaduration,
+      </if>
+      <if test="meidiastatus != null">
+        meidiastatus,
+      </if>
+      <if test="mediaremark != null">
+        mediaremark,
+      </if>
+      <if test="mediaphoto != null">
+        mediaphoto,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="categoryid != null">
+        #{categoryid,jdbcType=VARCHAR},
+      </if>
+      <if test="mediauuid != null">
+        #{mediauuid,jdbcType=VARCHAR},
+      </if>
+      <if test="mediatype != null">
+        #{mediatype,jdbcType=BOOLEAN},
+      </if>
+      <if test="mediaorginalname != null">
+        #{mediaorginalname,jdbcType=VARCHAR},
+      </if>
+      <if test="mediaorginalsize != null">
+        #{mediaorginalsize,jdbcType=DOUBLE},
+      </if>
+      <if test="mediaPlayedSize != null">
+        #{mediaPlayedSize,jdbcType=DOUBLE},
+      </if>
+      <if test="mediaorginaltype != null">
+        #{mediaorginaltype,jdbcType=VARCHAR},
+      </if>
+      <if test="mediaorginalpath != null">
+        #{mediaorginalpath,jdbcType=VARCHAR},
+      </if>
+      <if test="uploadtime != null">
+        #{uploadtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="uploaduser != null">
+        #{uploaduser,jdbcType=VARCHAR},
+      </if>
+      <if test="istranscode != null">
+        #{istranscode,jdbcType=BOOLEAN},
+      </if>
+      <if test="mediatspath != null">
+        #{mediatspath,jdbcType=VARCHAR},
+      </if>
+      <if test="mediam3u8path != null">
+        #{mediam3u8path,jdbcType=VARCHAR},
+      </if>
+      <if test="mediaplayurl != null">
+        #{mediaplayurl,jdbcType=VARCHAR},
+      </if>
+      <if test="meidiaduration != null">
+        #{meidiaduration,jdbcType=INTEGER},
+      </if>
+      <if test="meidiastatus != null">
+        #{meidiastatus,jdbcType=BOOLEAN},
+      </if>
+      <if test="mediaremark != null">
+        #{mediaremark,jdbcType=VARCHAR},
+      </if>
+      <if test="mediaphoto != null">
+        #{mediaphoto,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.yang.template.model.domain.TVideoMedia">
+    <!--@mbg.generated-->
+    update t_video_media
+    <set>
+      <if test="categoryid != null">
+        categoryid = #{categoryid,jdbcType=VARCHAR},
+      </if>
+      <if test="mediauuid != null">
+        mediauuid = #{mediauuid,jdbcType=VARCHAR},
+      </if>
+      <if test="mediatype != null">
+        mediatype = #{mediatype,jdbcType=BOOLEAN},
+      </if>
+      <if test="mediaorginalname != null">
+        mediaorginalname = #{mediaorginalname,jdbcType=VARCHAR},
+      </if>
+      <if test="mediaorginalsize != null">
+        mediaorginalsize = #{mediaorginalsize,jdbcType=DOUBLE},
+      </if>
+      <if test="mediaPlayedSize != null">
+        media_played_size = #{mediaPlayedSize,jdbcType=DOUBLE},
+      </if>
+      <if test="mediaorginaltype != null">
+        mediaorginaltype = #{mediaorginaltype,jdbcType=VARCHAR},
+      </if>
+      <if test="mediaorginalpath != null">
+        mediaorginalpath = #{mediaorginalpath,jdbcType=VARCHAR},
+      </if>
+      <if test="uploadtime != null">
+        uploadtime = #{uploadtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="uploaduser != null">
+        uploaduser = #{uploaduser,jdbcType=VARCHAR},
+      </if>
+      <if test="istranscode != null">
+        istranscode = #{istranscode,jdbcType=BOOLEAN},
+      </if>
+      <if test="mediatspath != null">
+        mediatspath = #{mediatspath,jdbcType=VARCHAR},
+      </if>
+      <if test="mediam3u8path != null">
+        mediam3u8path = #{mediam3u8path,jdbcType=VARCHAR},
+      </if>
+      <if test="mediaplayurl != null">
+        mediaplayurl = #{mediaplayurl,jdbcType=VARCHAR},
+      </if>
+      <if test="meidiaduration != null">
+        meidiaduration = #{meidiaduration,jdbcType=INTEGER},
+      </if>
+      <if test="meidiastatus != null">
+        meidiastatus = #{meidiastatus,jdbcType=BOOLEAN},
+      </if>
+      <if test="mediaremark != null">
+        mediaremark = #{mediaremark,jdbcType=VARCHAR},
+      </if>
+      <if test="mediaphoto != null">
+        mediaphoto = #{mediaphoto,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.yang.template.model.domain.TVideoMedia">
+    <!--@mbg.generated-->
+    update t_video_media
+    set categoryid = #{categoryid,jdbcType=VARCHAR},
+      mediauuid = #{mediauuid,jdbcType=VARCHAR},
+      mediatype = #{mediatype,jdbcType=BOOLEAN},
+      mediaorginalname = #{mediaorginalname,jdbcType=VARCHAR},
+      mediaorginalsize = #{mediaorginalsize,jdbcType=DOUBLE},
+      media_played_size = #{mediaPlayedSize,jdbcType=DOUBLE},
+      mediaorginaltype = #{mediaorginaltype,jdbcType=VARCHAR},
+      mediaorginalpath = #{mediaorginalpath,jdbcType=VARCHAR},
+      uploadtime = #{uploadtime,jdbcType=TIMESTAMP},
+      uploaduser = #{uploaduser,jdbcType=VARCHAR},
+      istranscode = #{istranscode,jdbcType=BOOLEAN},
+      mediatspath = #{mediatspath,jdbcType=VARCHAR},
+      mediam3u8path = #{mediam3u8path,jdbcType=VARCHAR},
+      mediaplayurl = #{mediaplayurl,jdbcType=VARCHAR},
+      meidiaduration = #{meidiaduration,jdbcType=INTEGER},
+      meidiastatus = #{meidiastatus,jdbcType=BOOLEAN},
+      mediaremark = #{mediaremark,jdbcType=VARCHAR},
+      mediaphoto = #{mediaphoto,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+</mapper>

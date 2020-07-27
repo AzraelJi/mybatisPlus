@@ -1,0 +1,80 @@
+server:
+  port: 9090
+spring:
+  profiles:
+    active: dev
+  application:
+    name: template
+  datasource:
+    dynamic:
+      primary: db1
+      hikari:
+        connection-test-query: select 'x'
+        min-idle: 10
+        max-pool-size: 100
+        connection-timeout: 60000
+        idle-timeout: 300000
+        data-source-properties:
+          serverTimezone: Asia/Shanghai
+          characterEncoding: utf-8
+          useUnicode: true
+          useSSL: false
+          autoReconnect: true
+          cachePrepStmts: true
+          prepStmtCacheSize: 250
+          prepStmtCacheSqlLimit: 2048
+          useServerPrepStmts: true
+          useLocalSessionState: true
+          rewriteBatchedStatements: true
+          cacheResultSetMetadata: true
+          cacheServerConfiguration: true
+          elideSetAutoCommits: true
+          maintainTimeStats: false
+          allowPublicKeyRetrieval: true
+  mvc:
+    date-format: yyyy-MM-dd HH:mm:ss
+    log-resolved-exception: true
+logging:
+  register-shutdown-hook: true
+mybatis-plus:
+  global-config:
+    db-config:
+      logic-delete-value: 1
+      logic-not-delete-value: 0
+    banner: false
+---
+spring:
+  profiles: dev
+  datasource:
+    dynamic:
+      datasource:
+        db1:
+          url: jdbc:p6spy:mysql://127.0.0.1:3306/cloud-video?useSSL=false
+          password: root
+          username: root
+          type: com.zaxxer.hikari.HikariDataSource
+          driver-class-name: com.p6spy.engine.spy.P6SpyDriver
+#---
+#spring:
+#  profiles: test
+#  datasource:
+#    dynamic:
+#      datasource:
+#        db1:
+#          url: jdbc:p6spy:postgresql://192.168.31.206:35432/botgo?useSSL=false&currentSchema=activiti
+#          password: root
+#          username: root
+#          type: com.zaxxer.hikari.HikariDataSource
+#          driver-class-name: org.postgresql.Driver
+#---
+#spring:
+#  profiles: prod
+#  datasource:
+#    dynamic:
+#      datasource:
+#        db1:
+#          url: jdbc:p6spy:postgresql://192.168.31.206:35432/botgo?useSSL=false&currentSchema=activiti
+#          password: Alldo807
+#          username: postgres
+#          type: com.zaxxer.hikari.HikariDataSource
+#          driver-class-name: org.postgresql.Driver
